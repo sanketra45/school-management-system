@@ -1,10 +1,10 @@
-package com.edusphere.edusphere-school;
+package com.eazybytes.eazyschool;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class edusphere-schoolApplicationTests {
+class eazyschoolApplicationTests {
 
 	@Test
 	void contextLoads() {

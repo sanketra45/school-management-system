@@ -1,13 +1,22 @@
 package com.eazybytes.eazyschool.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.extern.apachecommons.CommonsLog;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import jakarta.validation.constraints.*;
 
-
 @Data
+@Entity
+@Table(name = "contact_msg")
 public class Contact extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name="native", strategy = "native")
+    @Column(name = "contact_id")
 
     private int ContactId;
 
