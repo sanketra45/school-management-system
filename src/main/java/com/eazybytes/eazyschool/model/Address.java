@@ -15,7 +15,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class Address extends BaseEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "native", strategy = "native")
     private int addressId;
 
     @NotBlank(message="Address1 must not be blank")
