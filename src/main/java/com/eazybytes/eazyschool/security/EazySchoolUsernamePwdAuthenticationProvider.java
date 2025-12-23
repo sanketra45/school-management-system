@@ -15,13 +15,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Component
 public class EazySchoolUsernamePwdAuthenticationProvider
-        implements AuthenticationProvider {
-
+        implements AuthenticationProvider
+{
     @Autowired
     private PersonRepository personRepository;
 
@@ -30,30 +29,27 @@ public class EazySchoolUsernamePwdAuthenticationProvider
 
     @Override
     public Authentication authenticate(Authentication authentication)
-        throws AuthenticationException{
+            throws AuthenticationException {
         String email = authentication.getName();
         String pwd = authentication.getCredentials().toString();
         Person person = personRepository.readByEmail(email);
-
-        if(null != person && person.getPersonId() > 0 && passwordEncoder.matches(pwd, person.getPwd())) {
+        if(null != person && person.getPersonId()>0 &&
+                passwordEncoder.matches(pwd,person.getPwd())){
             return new UsernamePasswordAuthenticationToken(
-                    person.getName(), null, getGrantedAuthorities(person.getRoles()));
+                    email, null, getGrantedAuthorities(person.getRoles()));
+        }else{
+            throw new BadCredentialsException("Invalid credentials!");
         }
-        else{
-            throw new BadCredentialsException("Invalid Credentials");
-            }
-        }
+    }
 
-
-    private List<? extends GrantedAuthority> getGrantedAuthorities(Roles roles) {
+    private List<GrantedAuthority> getGrantedAuthorities(Roles roles) {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + roles.getRoleName()));
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_"+roles.getRoleName()));
         return grantedAuthorities;
     }
 
     @Override
-    public boolean supports(Class<?> authentication){
+    public boolean supports(Class<?> authentication) {
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
-
 }

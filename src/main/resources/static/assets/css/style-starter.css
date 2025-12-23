@@ -724,7 +724,6 @@ progress {
   width: 100%;
   max-width: 100%;
   padding-right: calc(var(--bs-gutter-x) / 2);
-  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 
@@ -2009,7 +2008,7 @@ progress {
 .table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
-  --bs-table-striped-color: #212529;
+  --bs-table-striped-color: var(--heading-color);
   --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
   --bs-table-active-color: #212529;
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
@@ -2017,7 +2016,7 @@ progress {
   --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
   width: 100%;
   margin-bottom: 1rem;
-  color: #212529;
+  color: var(--heading-color);
   vertical-align: top;
   border-color: #dee2e6;
 }
@@ -21219,53 +21218,24 @@ h4.inner-text-title {
     width:100%;
 }
 
-.h2-look{
-    font-size: calc(1.325rem + 0.9vw);
-    margin-left: 23%;
-    color:#black;
-}
-
-.p-error{
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    line-height: 28px;
-    color: var(--heading-color);
-    margin-left: 23%;
-    margin-top:10px
-}
-
 .four_zero_four_bg{
     background-image: url(/assets/images/dribbble.gif);
     height: 400px;
     background-position: center;
-    margin-left:23%;
  }
 
 .four_zero_four_bg h1{
     font-size:80px;
-    margin-left:7%;
-    color: #000;
  }
 
 .four_zero_four_bg h3{
     font-size:80px;
-    margin-left:30%;
-    color: #000;
 }
-
-
-body.dark .p-error p
- {
-    color: #fff; /* white for dark theme */
-}
-
 
 .link_404{
     padding: 10px 20px;
     margin: 20px 0;
     display: inline-block;
-    margin-left: 25%;
  }
 
 .contant_box_404{
@@ -21337,7 +21307,6 @@ body.dark .p-error p
 }
 
 /* //team block */
-
 
 /* ----- Overview ----- */
 
@@ -21569,4 +21538,39 @@ label {
 
 .table-responsive-md {
   margin: 50px;
+}
+
+.table-responsive-class {
+  margin: auto;
+  width: 50% !important;
+}
+
+.control-label:after {
+   content:"*";
+   color:red;
+}
+
+.close:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.modal-header .close {
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
 }

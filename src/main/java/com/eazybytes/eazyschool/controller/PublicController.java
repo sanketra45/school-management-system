@@ -38,9 +38,14 @@ public class PublicController {
             return "register";
         }
         boolean isSaved = personService.createNewPerson(person);
-        if(isSaved){
-            return "redirect:/login?register=true";
+        if (isSaved) {
+            redirectAttributes.addFlashAttribute(
+                    "successMessage",
+                    "Registration successful!! Please login."
+            );
+            return "redirect:/login";
         }
+
         else{
             return "register.html";
         }

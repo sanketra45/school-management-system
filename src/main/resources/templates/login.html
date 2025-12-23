@@ -45,10 +45,10 @@ Author URL: http://w3layouts.com
         <div class="row login-block">
             <div class="col-md-6 login-center">
 
-                <div class="alert alert-success"
-                     th:if="${successMessage}"
-                     th:text="${successMessage}">
+                <div th:if="${successMessage}" class="alert alert-success">
+                    <p th:text="${successMessage}"></p>
                 </div>
+
 
 
                 <form th:action="@{/login}" method="post" class="signin-form">

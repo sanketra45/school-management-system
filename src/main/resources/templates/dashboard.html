@@ -10,7 +10,7 @@ Author URL: http://w3layouts.com
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EduSphere - Best Educational Institute for your Child</title>
+    <title>Eazy School - Best Educational Institute for your Child</title>
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Template CSS Style link -->
@@ -38,9 +38,9 @@ Author URL: http://w3layouts.com
 <!-- //inner banner -->
 
 <!-- Welcome block -->
-<section class="w3l-contact py-5" id="contact">
-    <div class="container py-md-5 py-4">
-        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+<section class="w3l-contact py-1" id="contact">
+    <div class="container py-md-1 py-1">
+        <div class="title-main text-center mx-auto mb-md-1 mb-1" style="max-width:500px;">
             <h3 class="title-style" th:text="${'Welcome - ' + username}"></h3>
             <p class="" th:text="${'You logged in as - ' + roles}"></p>
         </div>
@@ -53,6 +53,22 @@ Author URL: http://w3layouts.com
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="row m-t-25">
+                <div class="col-sm-6 col-lg-3">
+                    <a th:href="@{/displayProfile}">
+                        <div class="overview-item overview-item--c4">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Profile</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
                 <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href="@{/displayMessages}">
                         <div class="overview-item overview-item--c3">
@@ -63,6 +79,38 @@ Author URL: http://w3layouts.com
                                     </div>
                                     <div class="text">
                                         <h2>Messages</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a th:href="@{/admin/displayClasses}">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Classes</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a th:href="@{/admin/displayCourses}">
+                        <div class="overview-item overview-item--c2">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Courses</h2>
                                     </div>
                                 </div>
                             </div>
