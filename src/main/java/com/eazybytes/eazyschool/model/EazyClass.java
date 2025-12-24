@@ -12,7 +12,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "class")
+@Table(name = "classes")
 public class EazyClass extends BaseEntity {
 
     @Id
