@@ -23,7 +23,7 @@ public class ProjectSecurityConfig {
                 // ✅ Authorization using lambda
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/dashboard", "/displayProfile", "/updateProfile").authenticated()
-                        .requestMatchers("/displayMessages", "/closeMsg/**", "/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/displayMessages/**", "/closeMsg/**", "/admin/**").hasRole("ADMIN")
                         .requestMatchers(
                                 "/", "/home",
                                 "/holidays/**",
