@@ -18,11 +18,13 @@ public class ProjectSecurityConfig {
                 // ✅ CSRF using lambda (no deprecation)
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/saveMsg", "/public/**")
+                        .ignoringRequestMatchers("/api/**")
                 )
 
                 // ✅ Authorization using lambda
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/dashboard", "/displayProfile", "/updateProfile").authenticated()
+                        .requestMatchers("/dashboard", "/displayProfile", "/updateProfile","/contact",
+                                "/saveMsg").authenticated()
                         .requestMatchers("/displayMessages/**", "/closeMsg/**", "/admin/**").hasRole("ADMIN")
                         .requestMatchers(
                                 "/", "/home",
@@ -35,7 +37,9 @@ public class ProjectSecurityConfig {
                                 "/logout",
                                 "/admin/messages",
                                 "/public/**",
-                                "/assets/**"
+                                "/assets/**",
+                                "/api/**",
+                                "/getMessagesByStatus"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

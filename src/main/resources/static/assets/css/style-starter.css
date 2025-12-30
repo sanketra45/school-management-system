@@ -5389,21 +5389,19 @@ fieldset:disabled .btn {
 
 /* Light mode */
 .alert-success {
-  color: #0f5132;
-  background-color: #d1e7dd;
-  border-color: #badbcc;
+  color: #111;
   text-align: center;
 }
 
 .alert-success .alert-link {
-  color: #0c4128;
+  color: #111;
+  font-weight: 600;
 }
 
 /* Dark mode */
 .dark-theme .alert-success {
-  color: black;
-  background-color: #d1e7dd
-  border-color: #badbcc;
+  color: #111;
+  text-align: center;
 }
 
 
@@ -21166,7 +21164,7 @@ h4.inner-text-title {
 .login-block input,
 .login-block textarea {
   width: 100%;
-  color: var(--heading-color);
+  color: #fff;
   background: var(--bg-grey);
   font-size: 16px;
   padding: 14px;
@@ -21542,6 +21540,7 @@ label {
   font-size: 1rem;
   text-align: left;
   display: flex;
+  color : black;
 }
 
 .row {
