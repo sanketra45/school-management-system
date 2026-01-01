@@ -18,14 +18,14 @@ public class ProjectSecurityConfig {
                 // ✅ CSRF using lambda (no deprecation)
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/saveMsg", "/public/**")
-                        .ignoringRequestMatchers("/api/**")
+                        .ignoringRequestMatchers("/api/**",  "/actuator/**")
                 )
 
                 // ✅ Authorization using lambda
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/dashboard", "/displayProfile", "/updateProfile","/contact",
                                 "/saveMsg").authenticated()
-                        .requestMatchers("/displayMessages/**", "/closeMsg/**", "/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/displayMessages/**", "/closeMsg/**", "/admin/**", "/actuator/**").hasRole("ADMIN")
                         .requestMatchers(
                                 "/", "/home",
                                 "/holidays/**",
